@@ -53,6 +53,9 @@ describe 'Admin Merchant Index' do
     expect(page).to have_content(@m1.name)
     expect(page).to have_content(@m2.name)
     expect(page).to have_content(@m3.name)
+    expect(page).to have_content(@m4.name)
+    expect(page).to have_content(@m5.name)
+    expect(page).to have_content(@m6.name)
   end
 
   it 'should have rerouting links on all merchants names to their admin show page' do
