@@ -110,7 +110,7 @@ describe "merchant items index" do
     end
   end
 
-  it "has a link to create a new item" do
+  it "can create a new item" do
     click_link "Create New Item"
     expect(current_path).to eq(new_merchant_item_path(@merchant1))
     fill_in "Name", with: "Bar Shampoo"
@@ -119,7 +119,7 @@ describe "merchant items index" do
     click_button "Submit"
 
     expect(current_path).to eq(merchant_items_path(@merchant1))
-
+    expect(page).to have_content("Item Has Been Created!")
     within("#disabled") do
       expect(page).to have_content("Bar Shampoo")
     end
