@@ -31,6 +31,7 @@ class Merchant::ItemsController < ApplicationController
 
   def create
     @merchant.items.create!(item_params_create)
+    flash.notice = 'Item Has Been Created!'
     redirect_to merchant_items_path(@merchant)
   end
 
