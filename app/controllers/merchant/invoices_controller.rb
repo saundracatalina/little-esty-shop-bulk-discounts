@@ -1,6 +1,6 @@
 class Merchant::InvoicesController < ApplicationController
-  before_action :find_invoice_and_merchant, only: [:show, :update]
-  before_action :find_merchant, only: [:index]
+  before_action :find_invoice, only: [:show, :update]
+  before_action :find_merchant, only: [:index, :show, :update]
 
   def index
     @invoices = @merchant.invoices
@@ -21,9 +21,8 @@ class Merchant::InvoicesController < ApplicationController
     params.require(:invoice).permit(:status)
   end
 
-  def find_invoice_and_merchant
+  def find_invoice
     @invoice = Invoice.find(params[:id])
-    @merchant = Merchant.find(params[:merchant_id])
   end
 
   def find_merchant
