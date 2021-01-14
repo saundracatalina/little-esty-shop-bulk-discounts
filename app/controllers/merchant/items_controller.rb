@@ -1,6 +1,6 @@
 class Merchant::ItemsController < ApplicationController
-  before_action :find_item_and_merchant, only: [:show, :edit, :update]
-  before_action :find_merchant, only: [:new, :create, :index]
+  before_action :find_item, only: [:show, :edit, :update]
+  before_action :find_merchant
 
   def index
     @enabled_items = @merchant.items.where(status: 1)
@@ -42,9 +42,8 @@ class Merchant::ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :unit_price, :merchant_id)
   end
 
-  def find_item_and_merchant
+  def find_item
     @item = Item.find(params[:id])
-    @merchant = Merchant.find(params[:merchant_id])
   end
 
   def find_merchant
