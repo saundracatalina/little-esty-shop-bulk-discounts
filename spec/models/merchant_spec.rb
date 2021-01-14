@@ -61,7 +61,10 @@ describe Merchant do
 
     end
     it "can list items ready to ship" do
-      expect(@merchant1.ordered_items_to_ship).to eq([@item_1, @item_1, @item_3, @item_4, @item_7, @item_8, @item_4])
+      expected = @merchant1.ordered_items_to_ship.map do |item|
+        item.name
+      end
+      expect(expected.sort).to eq([@item_1.name, @item_1.name, @item_3.name, @item_4.name, @item_7.name, @item_8.name, @item_4.name].sort)
     end
     it "shows a list of favorite customers" do
       expected = @merchant1.favorite_customers.map do |customer|

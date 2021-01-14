@@ -1,10 +1,10 @@
-class ItemsController < ApplicationController
-  before_action :find_item_and_merchant, only: [:show, :edit, :update]
-  before_action :find_merchant, only: [:new, :create, :index]
+class Merchant::ItemsController < ApplicationController
+  before_action :find_item, only: [:show, :edit, :update]
+  before_action :find_merchant
 
   def index
-    @enabled_items = @merchant.items.where(status: 1)
-    @disabled_items = @merchant.items.where(status: 0)
+    @enabled_items = @merchant.items.enabled
+    @disabled_items = @merchant.items.disabled
   end
 
   def show
@@ -30,10 +30,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create!(name: params[:name],
-                description: params[:description],
-                unit_price: params[:unit_price],
-                id: find_new_id, merchant: @merchant)
+    @merchant.items.create!(item_params_create)
+    flash.notice = 'Item Has Been Created!'
     redirect_to merchant_items_path(@merchant)
   end
 
@@ -42,16 +40,15 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :unit_price, :merchant_id)
   end
 
-  def find_item_and_merchant
+  def item_params_create
+    params.permit(:name, :description, :unit_price, :merchant_id)
+  end
+
+  def find_item
     @item = Item.find(params[:id])
-    @merchant = Merchant.find(params[:merchant_id])
   end
 
   def find_merchant
     @merchant = Merchant.find(params[:merchant_id])
-  end
-
-  def find_new_id
-    Item.last.id + 1
   end
 end
