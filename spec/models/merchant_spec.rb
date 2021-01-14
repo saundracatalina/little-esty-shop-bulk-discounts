@@ -96,7 +96,7 @@ describe Merchant do
       expected = @m1.ordered_items_to_ship.map do |item|
         item.name
       end
-      expect(expected.sort).to eq([@item_1.name, @item_1.name, @item_3.name, @item_4.name, @item_7.name, @item_8.name, @item_4.name].sort)
+      expect(expected.sort).to eq([@item_1.name, @item_1.name, @item_1.name, @item_1.name].sort)
     end
     
     it 'shows a list of favorite customers' do
