@@ -1,10 +1,12 @@
 class Merchant < ApplicationRecord
   validates_presence_of :name
+
   has_many :invoices
   has_many :items
   has_many :customers, through: :invoices
   has_many :transactions, through: :invoices
   has_many :invoice_items, through: :items
+  has_many :bulk_discounts
 
   enum status: [:enabled, :disabled]
 
@@ -20,7 +22,7 @@ class Merchant < ApplicationRecord
 
   def ordered_items_to_ship
     items = Item.joins(:invoice_items)
-                   .where("invoice_items.status = 0 OR invoice_items.status = 1")
+            .where("invoice_items.status = 0 OR invoice_items.status = 1")
   end
 
   def top_5_items
