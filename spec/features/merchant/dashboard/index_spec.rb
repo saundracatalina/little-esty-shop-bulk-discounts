@@ -5,10 +5,10 @@ describe 'merchant dashboard' do
     @merchant1 = Merchant.create!(name: 'Hair Care')
     @merchant2 = Merchant.create!(name: 'Jewelry')
 
-    @merch1_disc1 = BulkDiscount.create!(quantity: 10, percent_discount: 0.1, merchant_id: @merchant1.id)
-    @merch1_disc2 = BulkDiscount.create!(quantity: 15, percent_discount: 0.2, merchant_id: @merchant1.id)
+    @merch1_disc1 = BulkDiscount.create!(name: "Hair Care Discount 1", quantity: 10, percent_discount: 10, merchant_id: @merchant1.id)
+    @merch1_disc2 = BulkDiscount.create!(name: "Hair Care Discount 2", quantity: 15, percent_discount: 20, merchant_id: @merchant1.id)
 
-    @merch2_disc1 = BulkDiscount.create!(quantity: 5, percent_discount: 0.15, merchant_id: @merchant2.id)
+    @merch2_disc1 = BulkDiscount.create!(name: "Jewelry Discount 1", quantity: 75, percent_discount: 75, merchant_id: @merchant2.id)
 
     @customer_1 = Customer.create!(first_name: 'Joey', last_name: 'Smith')
     @customer_2 = Customer.create!(first_name: 'Cecilia', last_name: 'Jones')
