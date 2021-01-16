@@ -1,8 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'merchant dashboard' do
+describe 'merchant dashboard' do
   before :each do
     @merchant1 = Merchant.create!(name: 'Hair Care')
+    @merchant2 = Merchant.create!(name: 'Jewelry')
+
+    @merch1_disc1 = BulkDiscount.create!(quantity: 10, percent_discount: 0.1, merchant_id: @merchant1.id)
+    @merch1_disc2 = BulkDiscount.create!(quantity: 15, percent_discount: 0.2, merchant_id: @merchant1.id)
+
+    @merch2_disc1 = BulkDiscount.create!(quantity: 5, percent_discount: 0.15, merchant_id: @merchant2.id)
 
     @customer_1 = Customer.create!(first_name: 'Joey', last_name: 'Smith')
     @customer_2 = Customer.create!(first_name: 'Cecilia', last_name: 'Jones')
@@ -42,6 +48,7 @@ RSpec.describe 'merchant dashboard' do
 
   it 'shows the merchant name' do
     expect(page).to have_content(@merchant1.name)
+    expect(page).to_not have_content(@merchant2.name)
   end
 
   it 'can see a link to my merchant items index' do
@@ -91,7 +98,7 @@ RSpec.describe 'merchant dashboard' do
   end
   it "can see a section for Items Ready to Ship with list of names of items ordered and ids" do
     within("#items_ready_to_ship") do
-      
+
       expect(page).to have_content(@item_1.name)
       expect(page).to have_content(@item_1.invoice_ids)
 
@@ -114,5 +121,11 @@ RSpec.describe 'merchant dashboard' do
 
   it "shows the date that the invoice was created in this format: Monday, July 18, 2019" do
     expect(page).to have_content(@invoice_1.created_at.strftime("%A, %B %-d, %Y"))
+  end
+
+  it "has a link to view all my merchant's discounts, when clicked goes to my bulk discounts index" do
+    click_link "All My Discounts"
+
+    expect(current_path).to eq(merchant_bulk_discounts_path(@merchant1))
   end
 end
