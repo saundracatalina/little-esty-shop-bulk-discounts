@@ -35,4 +35,16 @@ describe "bulk discount edit page" do
     expect(page).to have_content("You will get 85.0% off")
     expect(page).to_not have_content(@merch1_disc1.name)
   end
+  it "has a flash message when things aren't filled out fully and doesn't redirect" do
+    visit edit_merchant_bulk_discount_path(@merchant1, @merch1_disc1)
+
+    fill_in "Name", with: ""
+    fill_in "Quantity", with: 65
+    fill_in "Percent discount", with: 85
+
+    click_on "Update Discount"
+
+    expect(current_path).to eq(edit_merchant_bulk_discount_path(@merchant1, @merch1_disc1))
+    expect(page).to have_content("All fields must be completed, try again!")
+  end
 end
