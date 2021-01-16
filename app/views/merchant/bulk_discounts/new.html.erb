@@ -1,0 +1,16 @@
+<h1>Fill out and submit this form to add a new discount!</h1>
+<%= form_tag merchant_bulk_discounts_path(@merchant) do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <br>
+  <br>
+  <%= label_tag :quantity %>
+  <%= text_field_tag :quantity %>
+  <br>
+  <br>
+  <%= label_tag :percent_discount %>
+  <%= text_field_tag :percent_discount %>
+  <br>
+  <br>
+  <%= submit_tag "Add New Discount" %>
+<% end %>
