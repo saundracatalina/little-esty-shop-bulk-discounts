@@ -1,0 +1,16 @@
+<h1>Fill out and submit this form to edit a discount:</h1>
+<%= form_tag merchant_bulk_discount_path(@merchant, @discount), method: :patch do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @discount.name %>
+  <br>
+  <br>
+  <%= label_tag :quantity %>
+  <%= text_field_tag :quantity, @discount.quantity %>
+  <br>
+  <br>
+  <%= label_tag :percent_discount %>
+  <%= text_field_tag :percent_discount, @discount.percent_discount %>
+  <br>
+  <br>
+  <%= submit_tag "Update Discount" %>
+<% end %>

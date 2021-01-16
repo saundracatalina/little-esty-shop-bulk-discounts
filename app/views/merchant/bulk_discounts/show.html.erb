@@ -1,0 +1,4 @@
+<h1><%= @discount.name%></h1>
+<p>When you buy at least <%= @discount.quantity %> of the same item</p>
+<p>You will get <%= @discount.percent_discount %>% off!</p>
+<b><%= link_to "Edit this discount", edit_merchant_bulk_discount_path(@merchant, @discount) %></b>

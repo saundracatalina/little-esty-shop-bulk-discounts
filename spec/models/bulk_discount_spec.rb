@@ -5,6 +5,7 @@ describe BulkDiscount do
     it { should validate_presence_of :quantity }
     it { should validate_presence_of :percent_discount }
     it { should validate_presence_of :merchant_id }
+    it { should validate_presence_of :name }
   end
 
   describe "relationships" do
