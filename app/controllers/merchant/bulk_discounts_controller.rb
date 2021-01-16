@@ -1,17 +1,15 @@
 class Merchant::BulkDiscountsController < ApplicationController
-  before_action :find_discount, only: [:show, :destroy]
-  before_action :find_merchant, only: [:index, :show, :new, :create, :destroy]
+  before_action :find_discount, only: [:show, :destroy, :edit, :update]
+  before_action :find_merchant
 
   def index
     @discounts = @merchant.bulk_discounts
   end
 
   def show
-
   end
 
   def new
-
   end
 
   def create
@@ -27,7 +25,12 @@ class Merchant::BulkDiscountsController < ApplicationController
   end
 
   def edit
-    
+  end
+
+  def update
+    @discount.update(discount_params)
+    flash.notice = "Successfully Updated Discount!"
+    redirect_to merchant_bulk_discount_path(@merchant, @discount)
   end
 
   private
@@ -42,4 +45,8 @@ class Merchant::BulkDiscountsController < ApplicationController
   def discount_params
     params.permit(:name, :quantity, :percent_discount, :merchant_id)
   end
+
+  # def discount_params_sec
+  #   params.require(:bulk_discount).permit(:name, :quantity, :percent_discount, :merchant_id)
+  # end
 end
