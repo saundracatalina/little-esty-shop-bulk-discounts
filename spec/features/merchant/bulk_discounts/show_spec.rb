@@ -25,4 +25,11 @@ describe "bulk_discount's show page" do
     expect(page).to_not have_content(@merch2_disc1.percent_discount)
     expect(page).to_not have_content(@merch2_disc1.quantity)
   end
+  it "has a link to edit that discount that takes you to an edit page" do
+    visit merchant_bulk_discount_path(@merchant1, @merch1_disc1)
+
+    click_link "Edit this discount"
+
+    expect(current_path).to eq(edit_merchant_bulk_discount_path(@merchant1, @merch1_disc1))
+  end
 end
