@@ -25,5 +25,13 @@ describe "bulk_discounts index page" do
     expect(page).to_not have_content(@merch2_disc1.quantity)
     expect(page).to_not have_content(@merch2_disc1.percent_discount)
   end
+  it "has a link to the show page of each discount listed" do
+    visit merchant_bulk_discounts_path(@merchant1)
 
+    within("#discount-#{@merch1_disc1.id}") do
+      click_link "Check out this discount!"
+
+      expect(current_path).to eq(merchant_bulk_discount_path(@merchant1, @merch1_disc1))
+    end
+  end
 end
