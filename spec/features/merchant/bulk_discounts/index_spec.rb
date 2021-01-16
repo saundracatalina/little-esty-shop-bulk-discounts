@@ -48,4 +48,17 @@ describe "bulk_discounts index page" do
 
     expect(current_path).to eq(new_merchant_bulk_discount_path(@merchant1))
   end
+  it "has a link next to each discount to delete it, when clicked a flash mess. appears and it's no longer on page" do
+    visit merchant_bulk_discounts_path(@merchant1)
+
+    within("#discount-#{@merch1_disc1.id}") do
+      click_link "Delete this discount."
+    end
+
+    expect(current_path).to eq(merchant_bulk_discounts_path(@merchant1))
+    expect(page).to have_content('Discount has been deleted!')
+    expect(page).to_not have_content(@merch1_disc1.name)
+    expect(page).to_not have_content(@merch1_disc1.quantity)
+    expect(page).to_not have_content(@merch1_disc1.percent_discount)
+  end
 end
