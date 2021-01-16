@@ -14,8 +14,8 @@ describe "bulk_discount's show page" do
     visit merchant_bulk_discount_path(@merchant1, @merch1_disc1)
 
     expect(page).to have_content(@merch1_disc1.name)
-    expect(page).to have_content(@merch1_disc1.percent_discount)
-    expect(page).to have_content(@merch1_disc1.quantity)
+    expect(page).to have_content("When you buy at least #{@merch1_disc1.quantity} of the same item")
+    expect(page).to have_content("You will get #{@merch1_disc1.percent_discount}% off")
 
     expect(page).to_not have_content(@merch1_disc2.name)
     expect(page).to_not have_content(@merch1_disc2.percent_discount)
