@@ -21,6 +21,7 @@ describe "bulk_discount's new page" do
 
     expect(current_path).to eq(merchant_bulk_discounts_path(@merchant1))
 
+    expect(page).to have_content('Discount has been created!')
     expect(page).to have_content("Hair Care Discount 3")
     expect(page).to have_content("You get 25.0% off")
     expect(page).to have_content("When you buy at least 25 of the same item")
