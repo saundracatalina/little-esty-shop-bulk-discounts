@@ -1,6 +1,6 @@
 class Merchant::BulkDiscountsController < ApplicationController
   before_action :find_discount, only: [:show, :destroy]
-  before_action :find_merchant, only: [:index, :new, :create, :destroy]
+  before_action :find_merchant, only: [:index, :show, :new, :create, :destroy]
 
   def index
     @discounts = @merchant.bulk_discounts
@@ -24,6 +24,10 @@ class Merchant::BulkDiscountsController < ApplicationController
     BulkDiscount.destroy(@discount.id)
     flash.notice = 'Discount has been deleted!'
     redirect_to merchant_bulk_discounts_path(@merchant)
+  end
+
+  def edit
+    
   end
 
   private
