@@ -5,6 +5,7 @@
     <p>You get <%= discount.percent_discount %>% off</p>
     <p>When you buy at least <%= discount.quantity %> of the same item</p>
     <b><%= link_to "Check out this discount!", merchant_bulk_discount_path(@merchant, discount) %></b>
+    <b><%= link_to "Delete this discount.", merchant_bulk_discount_path(@merchant, discount), method: :delete %></b>
   </section>
 <% end %>
 <br>
