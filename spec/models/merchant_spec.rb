@@ -22,6 +22,11 @@ describe Merchant do
       @m5 = Merchant.create!(name: 'Merchant 5')
       @m6 = Merchant.create!(name: 'Merchant 6')
 
+      @m1_disc1 = BulkDiscount.create!(name: "Merch 1 Discount 1", quantity: 10, percent_discount: 10, merchant_id: @m1.id)
+      @m1_disc2 = BulkDiscount.create!(name: "Merch 1 Discount 2", quantity: 15, percent_discount: 20, merchant_id: @m1.id)
+
+      @m2_disc1 = BulkDiscount.create!(name: "Merch 2 Discount 1", quantity: 75, percent_discount: 75, merchant_id: @m2.id)
+
       @c1 = Customer.create!(first_name: 'Yo', last_name: 'Yoz')
       @c2 = Customer.create!(first_name: 'Hey', last_name: 'Heyz')
       @c3 = Customer.create!(first_name: 'Sup', last_name: 'Sop')
