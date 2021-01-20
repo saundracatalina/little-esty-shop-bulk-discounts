@@ -16,4 +16,8 @@ class InvoiceItem < ApplicationRecord
            .order(:created_at)
            .distinct
   end
+
+  def find_best_discount
+    item.merchant.bulk_discounts.where("bulk_discounts.quantity <= ?", quantity).order(percent_discount: :desc).first
+  end
 end
