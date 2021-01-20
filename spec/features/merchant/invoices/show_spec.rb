@@ -5,14 +5,6 @@ RSpec.describe 'invoices show' do
     @merchant1 = Merchant.create!(name: 'Hair Care')
     @merchant2 = Merchant.create!(name: 'Jewelry')
 
-    # @merchant1 = Merchant.create!(name: 'Hair Care')
-
-    # @item_1 = Item.create!(name: "Shampoo", description: "This washes your hair", unit_price: 10, merchant_id: @merchant1.id)
-    # @item_2 = Item.create!(name: "Butterfly Clip", description: "This holds up your hair but in a clip", unit_price: 30, merchant_id: @merchant1.id)
-    # @item_3 = Item.create!(name: "Brush", description: "This takes out tangles", unit_price: 5, merchant_id: @merchant1.id)
-
-    # @invoice_1 = Invoice.create!(merchant_id: @merchant1.id, customer_id: @customer_1.id, status: 2)
-
     @merch1_disc1 = BulkDiscount.create!(name: "Hair Care Discount 1", quantity: 9, percent_discount: 10, merchant_id: @merchant1.id)
     @merch1_disc2 = BulkDiscount.create!(name: "Hair Care Discount 2", quantity: 14, percent_discount: 20, merchant_id: @merchant1.id)
 
