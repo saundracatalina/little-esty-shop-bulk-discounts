@@ -1,3 +1,11 @@
+Merchant.destroy_all
+Customer.destroy_all
+Invoice.destroy_all
+InvoiceItem.destroy_all
+BulkDiscount.destroy_all
+Transaction.destroy_all
+Item.destroy_all
+
 @merchant1 = Merchant.create!(name: 'Hair Care')
 @merchant2 = Merchant.create!(name: 'Jewelry')
 
