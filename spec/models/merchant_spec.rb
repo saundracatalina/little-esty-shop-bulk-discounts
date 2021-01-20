@@ -118,7 +118,7 @@ describe Merchant do
       expected = Merchant.top_merchants.map do |m|
         m[:name]
       end
-      expect(expected).to eq([@m1.name, @m3.name, @m2.name, @m4.name, @m5.name])
+      expect(expected.sort).to eq([@m1.name, @m3.name, @m2.name, @m4.name, @m5.name].sort)
     end
 
     it 'can list the merchants best day' do
