@@ -52,7 +52,7 @@ describe "bulk_discounts index page" do
     visit merchant_bulk_discounts_path(@merchant1)
 
     within("#discount-#{@merch1_disc1.id}") do
-      click_link "Delete this discount."
+      click_button "Delete this discount."
     end
 
     expect(current_path).to eq(merchant_bulk_discounts_path(@merchant1))
