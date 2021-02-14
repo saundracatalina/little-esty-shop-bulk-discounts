@@ -2,7 +2,7 @@
 
 ## Background and Description
 
-"Little Esty Shop" is a group project that requires students to build a fictitious e-commerce platform where merchants and admins can manage inventory and fulfill customer invoices.
+"Little Esty Shop" is a group project that requires students to build a fictitious e-commerce platform where merchants and admins can manage inventory and fulfill customer invoices. For the group project portion we were given 10 days. For the solo portion of the project adding the "Bulk Discounts" feature I was given 5 days.
 
 ## Work Flow Criteria
 
@@ -23,6 +23,11 @@
   - Dashboard
   - Merchant's Items
   - Merchant's Invoices
+  
+- Bulk Discounts (solo feature added)
+  - Adds a Bulk Discounts table to schema
+  - CRUD functionality for merchant's discounts
+  - Uses Active Record query to add discounts(when applicable) to Merchant and Admin Invoices
 
 ## Requirements
 
@@ -36,9 +41,7 @@
 
 <img src="https://i.ibb.co/Kq0PyCj/Screen-Shot-2021-01-12-at-6-52-19-PM.png" alt="little-esty-shop">
 
-## Potential Future Functionality
+## Ideas for Additional Functionality
 
 - Authentication for Users and Admin 
-- Cart
-- API
-- Completed Bootstrap Layout
+- Shopping Cart
