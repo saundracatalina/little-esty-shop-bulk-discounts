@@ -37,9 +37,9 @@
 - GitHub branching, team code reviews via GitHub comments, and github projects to track progress on user stories
 - Deploy completed code to Heroku
 
-## Catherine, Isabelle and Saundra's Diagram
+## Schema Image Including Bulk Discounts Feature
 
-<img src="https://ibb.co/fnrzDyM" alt="little-esty-shop-bulk-discounts">
+![little-esty-shop-bulk-discounts-schema](https://user-images.githubusercontent.com/68261312/107889014-619d9380-6ecd-11eb-9381-221c8adcb476.png)
 
 ## Ideas for Additional Functionality
 
