@@ -39,7 +39,7 @@
 
 ## Catherine, Isabelle and Saundra's Diagram
 
-<img src="https://i.ibb.co/Kq0PyCj/Screen-Shot-2021-01-12-at-6-52-19-PM.png" alt="little-esty-shop">
+<img src="https://ibb.co/fnrzDyM" alt="little-esty-shop-bulk-discounts">
 
 ## Ideas for Additional Functionality
 
